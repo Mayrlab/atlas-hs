@@ -21,7 +21,7 @@ rule all:
 
 rule merge_sces:
     input:
-        tmuris=lambda wcs: config["sce"][wcs.level]["tsapiens"]
+        tsapiens=lambda wcs: config["sce"][wcs.level]["tsapiens"]
     output:
         sce="data/sce/merged.{level}.raw.Rds"
     wildcard_constraints:

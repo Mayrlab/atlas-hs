@@ -5,7 +5,7 @@ gencodeValidEndsGTF: "/data/mayrc/data/hcl/gff/gencode.v39.mRNA_ends_found.gff3.
 utromeGTF: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.gtf.gz"
 utromeKDX: "/data/mayrc/data/hcl/kdx/utrome.e30.t5.gc39.pas3.f0.9999.w500.kdx"
 utromeMerge: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.m200.tsv"
-utromeIPA: "/data/mayrc/data/mca/hcl/utrome.e30.t5.gc39.pas3.f0.9999.w500.ipa.tsv"
+utromeIPA: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.ipa.tsv"
 
 utromeBlacklist: "metadata/blacklist.utrome.genes.txt"
 

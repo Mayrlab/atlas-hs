@@ -41,7 +41,7 @@ sce.tsapiens %<>% `[`(,!is.na(.$cell_ontology_class))
 ########################################
 
 ## Tabula Sapiens
-colData(sce.sapiens) %<>%
+colData(sce.tsapiens) %<>%
     as.data.frame %>%
     dplyr::rename(cell_type=cell_ontology_class,
                   tissue=organ_tissue,
@@ -52,11 +52,13 @@ colData(sce.sapiens) %<>%
     DataFrame()
 
 ## combine SCEs
-## sce <- cbind(sce.tmuris, sce.brain, sce.hspcs, sce.mescs)
-## colnames(sce) <- sce$cell_id
+## NB: technically we only have one here, but we go through the
+## motions to make it clear how to add future datasets
+sce <- cbind(sce.tsapiens) # , sce.brain, sce.hspcs, sce.mescs)
+colnames(sce) <- sce$cell_id
 
 ## filter unannotated cells
-## sce %<>% `[`(,!is.na(.$cell_type))
+sce %<>% `[`(,!is.na(.$cell_type))
 
 ## export
 saveRDS(sce, snakemake@output$sce)
