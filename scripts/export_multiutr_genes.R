@@ -5,7 +5,7 @@
 ################################################################################
 
 library(tidyverse)
-library(org.Mm.eg.db)
+library(org.Hs.eg.db)
 
 ################################################################################
 ## Mock Arguments
@@ -48,7 +48,7 @@ mgis <- df_genes %>%
     pull(gene_id) %>%
     str_extract("^[^.]+") %>%
     unique() %>%
-    mapIds(x=org.Mm.eg.db, column='MGI', keytype='ENSEMBL', multiVals='list')
+    mapIds(x=org.Hs.eg.db, column='MGI', keytype='ENSEMBL', multiVals='list')
 
 names(mgis) <- NULL
 mgis %>%

@@ -12,7 +12,7 @@ datasets_selector = "(" + "|".join(config['sce']['txs'].keys()) + ")"
 rule all:
     input:
         expand("data/sce/{dataset}.{level}.full_annot.Rds",
-               dataset=['tmuris', 'brain', 'hspcs', 'mescs', 'merged'],
+               dataset=['tsapiens'],
                level=['genes', 'txs']),
         expand("data/utrs/utrome_{level}_annotation.Rds",
                level=['genes', 'txs']),
@@ -21,10 +21,7 @@ rule all:
 
 rule merge_sces:
     input:
-        tmuris=lambda wcs: config["sce"][wcs.level]["tmuris"],
-        brain=lambda wcs: config["sce"][wcs.level]["brain"],
-        hspcs=lambda wcs: config["sce"][wcs.level]["hspcs"],
-        mescs=lambda wcs: config["sce"][wcs.level]["mescs"]
+        tmuris=lambda wcs: config["sce"][wcs.level]["tsapiens"]
     output:
         sce="data/sce/merged.{level}.raw.Rds"
     wildcard_constraints:
