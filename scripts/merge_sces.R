@@ -43,11 +43,11 @@ sce.tsapiens %<>% `[`(,!is.na(.$cell_ontology_class))
 ## Tabula Sapiens
 colData(sce.tsapiens) %<>%
     as.data.frame %>%
+    mutate(age='adult',
+           cluster=as.integer(as.factor(cell_ontology_class))) %>%
     dplyr::rename(cell_type=cell_ontology_class,
                   tissue=organ_tissue,
-                  cluster=as.integer(as.factor(cell_ontology_class)),
                   sample=sample_id.x) %>%
-    mutate(age='adult') %>%
     select('cell_id', 'tissue', 'cell_type', 'cluster', 'sample', 'age') %>%
     DataFrame()
 
