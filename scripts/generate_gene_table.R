@@ -63,12 +63,12 @@ cpc_genes_celltypes %>%
     as.matrix %>% as.data.frame %>%
     rownames_to_column('gene_id') %>%
     right_join(x=df_genes, by='gene_id') %>%
-    arrange(gene_symbol) %>%
+    arrange(gene_name) %>%
     write_tsv(snakemake@output$cpc) ## Export
 
 tpm_genes_celltypes %>%
     as.matrix %>% as.data.frame %>%
     rownames_to_column('gene_id') %>%
     right_join(x=df_genes, by='gene_id') %>%
-    arrange(gene_symbol) %>%
+    arrange(gene_name) %>%
     write_tsv(snakemake@output$tpm) ## Export

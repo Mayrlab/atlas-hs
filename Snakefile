@@ -115,7 +115,7 @@ rule annotate_txs_sce:
     wildcard_constraints:
         dataset=datasets_selector
     resources:
-        mem_mb=32000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -129,7 +129,7 @@ rule annotate_txs_sce_all:
     output:
         sce="data/sce/merged.txs.full_annot.Rds"
     resources:
-        mem_mb=32000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -145,7 +145,7 @@ rule annotate_genes_sce:
     wildcard_constraints:
         dataset=datasets_selector
     resources:
-        mem_mb=32000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -159,7 +159,7 @@ rule annotate_sce_all:
     output:
         sce="data/sce/merged.genes.full_annot.Rds"
     resources:
-        mem_mb=32000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -177,7 +177,7 @@ rule generate_lui_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=32000
+        mem_mb=64000
     script:
         "scripts/generate_lui_table.R"
 
@@ -193,7 +193,7 @@ rule generate_ipa_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=32000
+        mem_mb=64000
     script:
         "scripts/generate_ipa_table.R"
 
@@ -206,7 +206,7 @@ rule generate_gene_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=32000
+        mem_mb=64000
     script:
         "scripts/generate_gene_table.R"
 
