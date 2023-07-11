@@ -43,7 +43,7 @@ df_multiutrs <- rowData(sce) %>%
     filter(atlas.utr_type == 'multi',
            is_ipa == FALSE, is_blacklisted == FALSE,
            atlas.ncelltypes_gene >= 2) %>%
-    arrange(gene_symbol, utr_position)
+    arrange(gene_name, utr_position)
 
 cat(sprintf("Considering **%d genes**.\n",
             df_multiutrs %>% pull(gene_id) %>% unique() %>% length()))

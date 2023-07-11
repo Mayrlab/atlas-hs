@@ -21,7 +21,7 @@ extractOffset <- function (tx) {
 }
 
 extractRefTx <- function (tx) {
-    tx %>% str_extract("^ENSMUST[0-9]+\\.[0-9]+")
+    tx %>% str_extract("^ENST[0-9]+\\.[0-9]+")
 }
 
 extractUTR3 <- function (gr) {

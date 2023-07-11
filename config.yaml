@@ -1,22 +1,16 @@
 tmp_dir: "/fscratch/fanslerm"
 
-gencodeValidEndsGTF: "/data/mayrc/data/mca/gff/gencode.vM25.mRNA_ends_found.gff3.gz"
+gencodeValidEndsGTF: "/data/mayrc/data/hcl/gff/gencode.v39.mRNA_ends_found.gff3.gz"
 
-utromeGTF: "/data/mayrc/data/mca/gff/utrome.e30.t5.gc25.pas3.f0.9999.w500.gtf.gz"
-utromeKDX: "/data/mayrc/data/mca/kdx/utrome.e30.t5.gc25.pas3.f0.9999.w500.kdx"
-utromeMerge: "/data/mayrc/data/mca/gff/utrome.e30.t5.gc25.pas3.f0.9999.w500.m200.tsv"
-utromeIPA: "/data/mayrc/data/mca/gff/utrome.e30.t5.gc25.pas3.f0.9999.w500.ipa.tsv"
+utromeGTF: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.gtf.gz"
+utromeKDX: "/data/mayrc/data/hcl/kdx/utrome.e30.t5.gc39.pas3.f0.9999.w500.kdx"
+utromeMerge: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.m200.tsv"
+utromeIPA: "/data/mayrc/data/hcl/gff/utrome.e30.t5.gc39.pas3.f0.9999.w500.ipa.tsv"
 
 utromeBlacklist: "metadata/blacklist.utrome.genes.txt"
 
 sce:
   txs:
-    tmuris: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/tmuris.txs.Rds"
-    brain: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/ximerakis19.txs.Rds"
-    hspcs: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/dahlin18.txs.Rds"
-    mescs: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/guo19.txs.Rds"
+    tsapiens: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_hg38_v1/tabula-sapiens.txs.Rds"
   genes:
-    tmuris: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/tmuris.genes.Rds"
-    brain: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/ximerakis19.genes.Rds"
-    hspcs: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/dahlin18.genes.Rds"
-    mescs: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_mm10_v2/guo19.genes.Rds"
+    tsapiens: "/data/mayrc/fanslerm/scutr-quant/data/sce/utrome_hg38_v1/tabula-sapiens.genes.Rds"

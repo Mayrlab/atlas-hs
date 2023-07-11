@@ -12,7 +12,7 @@ datasets_selector = "(" + "|".join(config['sce']['txs'].keys()) + ")"
 rule all:
     input:
         expand("data/sce/{dataset}.{level}.full_annot.Rds",
-               dataset=['tmuris', 'brain', 'hspcs', 'mescs', 'merged'],
+               dataset=['tsapiens'],
                level=['genes', 'txs']),
         expand("data/utrs/utrome_{level}_annotation.Rds",
                level=['genes', 'txs']),
@@ -21,10 +21,7 @@ rule all:
 
 rule merge_sces:
     input:
-        tmuris=lambda wcs: config["sce"][wcs.level]["tmuris"],
-        brain=lambda wcs: config["sce"][wcs.level]["brain"],
-        hspcs=lambda wcs: config["sce"][wcs.level]["hspcs"],
-        mescs=lambda wcs: config["sce"][wcs.level]["mescs"]
+        tsapiens=lambda wcs: config["sce"][wcs.level]["tsapiens"]
     output:
         sce="data/sce/merged.{level}.raw.Rds"
     wildcard_constraints:
@@ -32,7 +29,7 @@ rule merge_sces:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     script:
         "scripts/merge_sces.R"
 
@@ -46,7 +43,7 @@ rule compute_size_factors:
         max_sf=1.05,
         mrna_count=200000
     resources:
-        mem_mb=24000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -63,7 +60,7 @@ rule generate_utr_metadata:
     params:
         min_cells=50
     resources:
-        mem_mb=16000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -118,7 +115,7 @@ rule annotate_txs_sce:
     wildcard_constraints:
         dataset=datasets_selector
     resources:
-        mem_mb=8000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -132,7 +129,7 @@ rule annotate_txs_sce_all:
     output:
         sce="data/sce/merged.txs.full_annot.Rds"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -148,7 +145,7 @@ rule annotate_genes_sce:
     wildcard_constraints:
         dataset=datasets_selector
     resources:
-        mem_mb=8000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -162,7 +159,7 @@ rule annotate_sce_all:
     output:
         sce="data/sce/merged.genes.full_annot.Rds"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     conda:
         "envs/bioc_3_16.yaml"
     script:
@@ -180,7 +177,7 @@ rule generate_lui_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     script:
         "scripts/generate_lui_table.R"
 
@@ -196,7 +193,7 @@ rule generate_ipa_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     script:
         "scripts/generate_ipa_table.R"
 
@@ -209,7 +206,7 @@ rule generate_gene_table:
     conda:
         "envs/bioc_3_16.yaml"
     resources:
-        mem_mb=16000
+        mem_mb=64000
     script:
         "scripts/generate_gene_table.R"
 
