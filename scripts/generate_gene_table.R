@@ -52,9 +52,13 @@ cts_genes_celltypes <- assay(sce, 'normcounts') %*% M_cells_celltypes
 ## n cells per celltype
 ncells_celltypes <- colSums(M_cells_celltypes)
 
-cpc_genes_celltypes <- cts_genes_celltypes %*% Diagonal(length(ncells_celltypes), 1/ncells_celltypes)
+cpc_genes_celltypes <- cts_genes_celltypes %>%
+    { . %*% Diagonal(ncol(.), 1/ncells_celltypes) } %>%
+    `colnames<-`(colnames(cts_genes_celltypes))
 
-tpm_genes_celltypes <- cts_genes_celltypes %>% { . %*% Diagonal(ncol(.), 1e6/colSums(.)) }
+tpm_genes_celltypes <- cts_genes_celltypes %>%
+    { . %*% Diagonal(ncol(.), 1e6/colSums(.)) } %>%
+    `colnames<-`(colnames(cts_genes_celltypes))
 
 df_genes <- rowData(sce) %>%
     as_tibble
