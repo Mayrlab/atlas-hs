@@ -3,6 +3,11 @@
 # Human UTRome Atlas
 This pipeline analyzes the Tabula Sapiens dataset to define an atlas of 3' UTRs. At its core is a tabulation of how many distinct cell types use a particular tandem (non-intronic) isoform at either 5% or 10% frequency. Genes that have more that two isoforms of this type are classified as multi-UTR genes.
 
+The accompanying manuscript is openly available at:
+
+> Fansler, M.M., Mitschka, S. & Mayr, C. Quantifying 3′UTR length from scRNA-seq data reveals changes independent of gene expression. *Nat Commun* **15**, 4050 (2024). [https://doi.org/10.1038/s41467-024-48254-9](https://doi.org/10.1038/s41467-024-48254-9)
+
+
 ## Usage
 
 The pipeline relies on Snakemake and Conda/Mamba. If Conda is not installed, we recommend [a Miniforge variant](https://github.com/conda-forge/miniforge), specifically [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge).
